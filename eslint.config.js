@@ -12,7 +12,7 @@ export default tseslint.config(
   ...eslintPluginVue.configs['flat/recommended'],
   {
     languageOptions: {
-      globals: { ...globals.browser },
+      globals: { ...globals.browser, ...globals.node },
     },
   },
   /** javascript规则 */
