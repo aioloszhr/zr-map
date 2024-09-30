@@ -18,15 +18,6 @@ module.exports = {
     { name: 'Vue' },
     { name: 'node' },
   ],
-  // it needs to match the value for field type. Eg.: 'fix'
-  /*  scopeOverrides: {
-	fix: [
-	  {name: 'merge'},
-	  {name: 'style'},
-	  {name: 'e2eTest'},
-	  {name: 'unitTest'}
-	]
-  },  */
   // override the messages, defaults are as follows
   messages: {
     type: '选择一种你的提交类型:',
