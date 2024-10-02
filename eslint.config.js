@@ -36,7 +36,9 @@ export default tseslint.config(
         },
       },
     },
-    rules: {},
+    rules: {
+      'vue/multi-word-component-names': 'off',
+    },
   },
   /** typescript规则 */
   {
