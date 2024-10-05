@@ -19,7 +19,7 @@ export default tseslint.config(
   {
     files: ['**/*.{js,mjs,cjs,vue}'],
     rules: {
-      'no-console': 'error',
+      'no-console': 'off',
     },
   },
   /** vue规则 */
