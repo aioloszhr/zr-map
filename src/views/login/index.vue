@@ -1,162 +1,64 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import gsap from 'gsap'
-
-const svg = ref<SVGElement | null>()
-
-onMounted(() => {
-  const pathElArr = svg.value.getElementsByTagName('path')
-  for (let i = 0; i < pathElArr.length; i++) {
-    const tl = gsap.timeline({
-      repeat: -1,
-      yoyo: true,
-      delay: 0.1 + i * 0.05,
-      defaults: { duration: 1 },
-    })
-    tl.fromTo(
-      pathElArr[i],
-      { x: 4, y: 4 },
-      { x: -4, y: -4, stroke: 'rgb(47, 97, 220)' },
-    )
-  }
-  gsap.to('.sphere path', { strokeDashoffset: 0, duration: 4 })
-})
+import Animation from './components/Animation.vue'
+import SvgIcon from '@/components/SvgIcon.vue'
 </script>
 
 <template>
   <div class="login-wrapper">
-    <div class="container">123</div>
-    <div class="animate-wrapper">
-      <div class="sphere-animation">
-        <svg
-          ref="svg"
-          class="sphere"
-          viewBox="0 0 440 440"
-          stroke="rgba(80,80,80,.35)"
-        >
-          <defs>
-            <linearGradient
-              id="sphereGradient"
-              x1="25%"
-              x2="25%"
-              y1="0%"
-              y2="75%"
-            >
-              <stop stop-color="#373734" offset="0%"></stop>
-              <stop stop-color="#242423" offset="50%"></stop>
-              <stop stop-color="#0D0D0C" offset="100%"></stop>
-            </linearGradient>
-          </defs>
-          <path
-            d="M361.604 361.238c-24.407 24.408-51.119 37.27-59.662 28.727-8.542-8.543 4.319-35.255 28.726-59.663 24.408-24.407 51.12-37.269 59.663-28.726 8.542 8.543-4.319 35.255-28.727 59.662z"
-            stroke-dasharray="280.7113952636719"
-            stroke-dashoffset="280.7113952636719"
-          ></path>
-          <path
-            d="M360.72 360.354c-35.879 35.88-75.254 54.677-87.946 41.985-12.692-12.692 6.105-52.067 41.985-87.947 35.879-35.879 75.254-54.676 87.946-41.984 12.692 12.692-6.105 52.067-41.984 87.946z"
-            stroke-dasharray="413.3923645019531"
-            stroke-dashoffset="413.3923645019531"
-          ></path>
-          <path
-            d="M357.185 356.819c-44.91 44.91-94.376 68.258-110.485 52.149-16.11-16.11 7.238-65.575 52.149-110.485 44.91-44.91 94.376-68.259 110.485-52.15 16.11 16.11-7.239 65.576-52.149 110.486z"
-            stroke-dasharray="518.689697265625"
-            stroke-dashoffset="518.689697265625"
-          ></path>
-          <path
-            d="M350.998 350.632c-53.21 53.209-111.579 81.107-130.373 62.313-18.794-18.793 9.105-77.163 62.314-130.372 53.209-53.21 111.579-81.108 130.373-62.314 18.794 18.794-9.105 77.164-62.314 130.373z"
-            stroke-dasharray="612.8993530273438"
-            stroke-dashoffset="612.8993530273438"
-          ></path>
-          <path
-            d="M343.043 342.677c-59.8 59.799-125.292 91.26-146.283 70.268-20.99-20.99 10.47-86.483 70.269-146.282 59.799-59.8 125.292-91.26 146.283-70.269 20.99 20.99-10.47 86.484-70.27 146.283z"
-            stroke-dasharray="688.08056640625"
-            stroke-dashoffset="688.08056640625"
-          ></path>
-          <path
-            d="M334.646 334.28c-65.169 65.169-136.697 99.3-159.762 76.235-23.065-23.066 11.066-94.593 76.235-159.762s136.697-99.3 159.762-76.235c23.065 23.065-11.066 94.593-76.235 159.762z"
-            stroke-dasharray="750.9237060546875"
-            stroke-dashoffset="750.9237060546875"
-          ></path>
-          <path
-            d="M324.923 324.557c-69.806 69.806-146.38 106.411-171.031 81.76-24.652-24.652 11.953-101.226 81.759-171.032 69.806-69.806 146.38-106.411 171.031-81.76 24.652 24.653-11.953 101.226-81.759 171.032z"
-            stroke-dasharray="804.0537109375"
-            stroke-dashoffset="804.0537109375"
-          ></path>
-          <path
-            d="M312.99 312.625c-73.222 73.223-153.555 111.609-179.428 85.736-25.872-25.872 12.514-106.205 85.737-179.428s153.556-111.609 179.429-85.737c25.872 25.873-12.514 106.205-85.737 179.429z"
-            stroke-dasharray="843.49072265625"
-            stroke-dashoffset="843.49072265625"
-          ></path>
-          <path
-            d="M300.175 299.808c-75.909 75.909-159.11 115.778-185.837 89.052-26.726-26.727 13.143-109.929 89.051-185.837 75.908-75.908 159.11-115.778 185.837-89.051 26.726 26.726-13.143 109.928-89.051 185.836z"
-            stroke-dasharray="873.8916015625"
-            stroke-dashoffset="873.8916015625"
-          ></path>
-          <path
-            d="M284.707 284.34c-77.617 77.617-162.303 118.773-189.152 91.924-26.848-26.848 14.308-111.534 91.924-189.15C265.096 109.496 349.782 68.34 376.63 95.188c26.849 26.849-14.307 111.535-91.923 189.151z"
-            stroke-dasharray="890.8994140625"
-            stroke-dashoffset="890.8994140625"
-          ></path>
-          <path
-            d="M269.239 267.989c-78.105 78.104-163.187 119.656-190.035 92.807-26.849-26.848 14.703-111.93 92.807-190.035 78.105-78.104 163.187-119.656 190.035-92.807 26.849 26.848-14.703 111.93-92.807 190.035z"
-            stroke-dasharray="895.5676879882812"
-            stroke-dashoffset="895.5676879882812"
-          ></path>
-          <path
-            d="M252.887 252.52C175.27 330.138 90.584 371.294 63.736 344.446 36.887 317.596 78.043 232.91 155.66 155.293 233.276 77.677 317.962 36.521 344.81 63.37c26.85 26.848-14.307 111.534-91.923 189.15z"
-            stroke-dasharray="890.8988037109375"
-            stroke-dashoffset="890.8988037109375"
-          ></path>
-          <path
-            d="M236.977 236.61C161.069 312.52 77.867 352.389 51.14 325.663c-26.726-26.727 13.143-109.928 89.052-185.837 75.908-75.908 159.11-115.777 185.836-89.05 26.727 26.726-13.143 109.928-89.051 185.836z"
-            stroke-dasharray="873.893798828125"
-            stroke-dashoffset="873.893798828125"
-          ></path>
-          <path
-            d="M221.067 220.7C147.844 293.925 67.51 332.31 41.639 306.439c-25.873-25.873 12.513-106.206 85.736-179.429C200.6 53.786 280.931 15.4 306.804 41.272c25.872 25.873-12.514 106.206-85.737 179.429z"
-            stroke-dasharray="843.4929809570312"
-            stroke-dashoffset="843.4929809570312"
-          ></path>
-          <path
-            d="M205.157 204.79c-69.806 69.807-146.38 106.412-171.031 81.76-24.652-24.652 11.953-101.225 81.759-171.031 69.806-69.807 146.38-106.411 171.031-81.76 24.652 24.652-11.953 101.226-81.759 171.032z"
-            stroke-dasharray="804.0543212890625"
-            stroke-dashoffset="804.0543212890625"
-          ></path>
-          <path
-            d="M189.247 188.881c-65.169 65.169-136.696 99.3-159.762 76.235-23.065-23.065 11.066-94.593 76.235-159.762s136.697-99.3 159.762-76.235c23.065 23.065-11.066 94.593-76.235 159.762z"
-            stroke-dasharray="750.9235229492188"
-            stroke-dashoffset="750.9235229492188"
-          ></path>
-          <path
-            d="M173.337 172.971c-59.799 59.8-125.292 91.26-146.282 70.269-20.991-20.99 10.47-86.484 70.268-146.283 59.8-59.799 125.292-91.26 146.283-70.269 20.99 20.991-10.47 86.484-70.269 146.283z"
-            stroke-dasharray="688.0787353515625"
-            stroke-dashoffset="688.0787353515625"
-          ></path>
-          <path
-            d="M157.427 157.061c-53.209 53.21-111.578 81.108-130.372 62.314-18.794-18.794 9.104-77.164 62.313-130.373 53.21-53.209 111.58-81.108 130.373-62.314 18.794 18.794-9.105 77.164-62.314 130.373z"
-            stroke-dasharray="612.899169921875"
-            stroke-dashoffset="612.899169921875"
-          ></path>
-          <path
-            d="M141.517 141.151c-44.91 44.91-94.376 68.259-110.485 52.15-16.11-16.11 7.239-65.576 52.15-110.486 44.91-44.91 94.375-68.258 110.485-52.15 16.109 16.11-7.24 65.576-52.15 110.486z"
-            stroke-dasharray="518.690673828125"
-            stroke-dashoffset="518.690673828125"
-          ></path>
-          <path
-            id="path2"
-            d="M125.608 125.241c-35.88 35.88-75.255 54.677-87.947 41.985-12.692-12.692 6.105-52.067 41.985-87.947C115.525 43.4 154.9 24.603 167.592 37.295c12.692 12.692-6.105 52.067-41.984 87.946z"
-            stroke-dasharray="413.3919372558594"
-            stroke-dashoffset="413.3919372558594"
-          ></path>
-          <path
-            id="path1"
-            d="M109.698 109.332c-24.408 24.407-51.12 37.268-59.663 28.726-8.542-8.543 4.319-35.255 28.727-59.662 24.407-24.408 51.12-37.27 59.662-28.727 8.543 8.543-4.319 35.255-28.726 59.663z"
-            stroke-dasharray="280.7110900878906"
-            stroke-dashoffset="280.7110900878906"
-          ></path>
-        </svg>
+    <div class="container">
+      <div class="header">
+        <SvgIcon name="earth" width="20" height="20" color="#0675f7" />
+        <span>Zr Data Visualization</span>
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="title">
+            <p>您好，</p>
+            <p>欢迎探索数据可视化</p>
+          </div>
+          <div class="desc">本网站用于记录数据可视化案例</div>
+        </div>
+        <div class="links">
+          <div class="link">
+            <div class="link-content">
+              <div>地图（Gis）</div>
+              <svg
+                viewBox="0 0 1024 1024"
+                focusable="false"
+                data-icon="swap-right"
+                width="1em"
+                height="1em"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div class="link">
+            <div class="link-content">
+              <div>Three.js</div>
+              <svg
+                viewBox="0 0 1024 1024"
+                focusable="false"
+                data-icon="swap-right"
+                width="1em"
+                height="1em"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    <Animation />
   </div>
 </template>
 
@@ -169,25 +71,62 @@ onMounted(() => {
     position: relative;
     z-index: 2;
     height: 100%;
-  }
-  .animate-wrapper {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow: hidden;
-    z-index: 1;
-    padding-top: 500px;
-    .sphere-animation {
-      max-width: 1100px;
-      min-width: 375px;
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
       margin: 0 auto;
-      .sphere path {
-        fill: url(#sphereGradient);
-        stroke-width: 1px;
-        stroke: #50505059;
-        backface-visibility: hidden;
+      width: 100%;
+      height: 68px;
+      font-weight: 700;
+    }
+    .main {
+      margin: 0 auto;
+      padding: 80px 24px 0;
+      max-width: 900px;
+      height: calc(100% - 68px);
+      min-height: 864px;
+      .content {
+        margin-bottom: 60px;
+        padding: 0;
+        .title {
+          display: flex;
+          flex-direction: column;
+          gap: 3px;
+          font-size: 64px;
+          color: #f5f9fff2;
+          line-height: 90px;
+          margin-bottom: 12px;
+        }
+        .desc {
+          font-size: 32px;
+          line-height: 46px;
+          color: #e0ecffcc;
+        }
+      }
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        .link {
+          width: 100%;
+          max-width: 400px;
+          border-radius: 16px;
+          padding: 20px;
+          background: linear-gradient(90deg, #262931, #1d2127a6);
+          box-shadow: 0 18px 11px #00000040;
+          outline: none;
+          text-decoration: none;
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          transition: all 0.2s;
+          cursor: pointer;
+          .link-content {
+            display: flex;
+            justify-content: space-between;
+          }
+        }
       }
     }
   }

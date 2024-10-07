@@ -43,7 +43,10 @@ export default tseslint.config(
   /** typescript规则 */
   {
     files: ['**/*.{ts,tsx,vue}'],
-    rules: {},
+    rules: {
+      '@typescript-eslint/no-unsafe-function-type': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
+    },
   },
   /** prettier配置 */
   eslintPluginPrettier,
