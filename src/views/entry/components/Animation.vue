@@ -11,12 +11,12 @@ onMounted(() => {
       repeat: -1,
       yoyo: true,
       delay: 0.1 + i * 0.05,
-      defaults: { duration: 1 },
+      defaults: { duration: 1 }
     })
     tl.fromTo(
       pathElArr[i],
       { x: 4, y: 4 },
-      { x: -4, y: -4, stroke: 'rgb(47, 97, 220)' },
+      { x: -4, y: -4, stroke: 'rgb(47, 97, 220)' }
     )
   }
   gsap.to('.sphere path', { strokeDashoffset: 0, duration: 4 })

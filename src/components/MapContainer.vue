@@ -20,8 +20,8 @@ onMounted(() => {
         viewMode: '3D', // 是否为3D地图模式
         zoom: 17, // 初始化地图级别
         center: position.tfPosition, // 初始化地图中心点位置
-        showBuildingBlock: true, // 显示建筑物
-        mapStyle: 'amap://styles/blue' // 官方地图样式
+        showBuildingBlock: true // 显示建筑物
+        // mapStyle: 'amap://styles/blue' // 官方地图样式
       })
       // loca = new window.Loca.Container({
       //   map

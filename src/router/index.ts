@@ -6,7 +6,7 @@ import type { RouteRecordRaw } from 'vue-router'
 
 export const router = createRouter({
   history: createWebHashHistory(),
-  routes: constantRoutes as unknown as RouteRecordRaw[],
+  routes: constantRoutes as unknown as RouteRecordRaw[]
 })
 
 /** 注册vue-router */

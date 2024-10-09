@@ -1,12 +1,26 @@
+import Layout from '@/views/amap/layout/index.vue'
+
 export default [
   {
     path: '/',
-    name: 'ZRLogin',
-    component: () => import('@/views/login/index.vue')
+    name: 'ZREntry',
+    component: () => import('@/views/entry/index.vue')
   },
   {
-    path: '/map',
-    name: 'ZRMap',
-    component: () => import('@/views/map/index.vue')
+    name: 'AMap',
+    path: '/amap',
+    component: Layout,
+    children: [
+      {
+        name: 'Home',
+        path: 'home',
+        component: () => import('@/views/amap/home/index.vue')
+      },
+      {
+        name: 'RouteLine',
+        path: 'route/route-line',
+        component: () => import('@/views/amap/route/route-line/index.vue')
+      }
+    ]
   }
 ]

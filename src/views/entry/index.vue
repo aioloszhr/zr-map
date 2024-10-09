@@ -26,8 +26,8 @@ const navigate = (name: string) => {
         </div>
         <div class="links">
           <div class="link">
-            <div class="link-content" @click="navigate('ZRMap')">
-              <div>地图（Gis）</div>
+            <div class="link-content" @click="navigate('AMap')">
+              <div>高德地图</div>
               <SvgIcon name="link" />
             </div>
           </div>
