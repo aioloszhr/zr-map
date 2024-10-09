@@ -1,6 +1,12 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
 import Animation from './components/Animation.vue'
 import SvgIcon from '@/components/SvgIcon.vue'
+const router = useRouter()
+
+const navigate = (name: string) => {
+  router.push({ name })
+}
 </script>
 
 <template>
@@ -20,7 +26,7 @@ import SvgIcon from '@/components/SvgIcon.vue'
         </div>
         <div class="links">
           <div class="link">
-            <div class="link-content">
+            <div class="link-content" @click="navigate('ZRMap')">
               <div>地图（Gis）</div>
               <SvgIcon name="link" />
             </div>

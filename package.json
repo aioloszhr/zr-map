@@ -11,9 +11,10 @@
     "commit": "git-cz"
   },
   "dependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
     "element-plus": "^2.8.4",
     "gsap": "^3.12.5",
-    "pina": "^0.20.2204228",
+    "pinia": "^2.2.4",
     "vue": "^3.4.37",
     "vue-router": "^4.4.5"
   },

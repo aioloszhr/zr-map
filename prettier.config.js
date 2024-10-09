@@ -4,7 +4,7 @@
  * @see https://www.prettier.cn/docs/options.html
  */
 export default {
-  trailingComma: 'all',
+  trailingComma: 'none',
   singleQuote: true,
   semi: false,
   printWidth: 80,
@@ -20,5 +20,5 @@ export default {
   bracketSameLine: false,
   jsxBracketSameLine: false,
   vueIndentScriptAndStyle: false,
-  singleAttributePerLine: false,
+  singleAttributePerLine: false
 }
